@@ -19,15 +19,21 @@ for (let key in fullhoroscope) {
     let genNumFromKey = generateRandomNumber(fullhoroscope[key].length)
 
     // if else statement to see
-    if (key === 'motivationalHoroscope') {
-        messageHoroscope.push(`The topic today is ${fullhoroscope[key][genNumFromKey]}.`)
+    switch (key) {
 
-    } else if (key === 'positives') {
-        messageHoroscope.push(`Get ready for a good news, because this month you will ${fullhoroscope[key][genNumFromKey]}.`)
-    } else if (key === 'negatives') {
-        messageHoroscope.push(`Not only good things can happen in horoscope and you might need to ${fullhoroscope[key][genNumFromKey]}.`)
-    } else {
-        messageHoroscope.push(`No message for you has been regerated, please try again later`)
+        case 'motivationalHoroscope':
+            messageHoroscope.push(`The topic today is ${fullhoroscope[key][genNumFromKey]}.`)
+            break;
+
+        case 'positives':
+            messageHoroscope.push(`Get ready for a good news, because this month you will ${fullhoroscope[key][genNumFromKey]}.`)
+            break;
+        case 'negatives':
+            messageHoroscope.push(`Not only good things can happen in horoscope and you might need to ${fullhoroscope[key][genNumFromKey]}.`)
+            break;
+        default:
+            messageHoroscope.push(`No message for you has been regerated, please try again later`)
+            break;
     }
 }
 
@@ -35,6 +41,9 @@ function formatHoroscope(formatHoroscope) {
 
 
     const formatted = messageHoroscope.join('\n');
+
+
     console.log(formatted)
+
 }
-formatHoroscope(messageHoroscope);
+formatHoroscope(messageHoroscope)
